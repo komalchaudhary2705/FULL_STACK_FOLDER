@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      section {
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .main {
+        width: 400px;
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+      .input-field {
+        /* max-width: 600px; */
+        width: 100%;
+        display: flex;
+      }
+      button {
+        padding: 30px;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+      }
+      ul {
+        list-style-type: none;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="main">
+        <div class="input-field">
+          <input type="text" placeholder="Enter list" id="input-field" />
+          <button id="addBtn">+</button>
+        </div>
+        <ul id="dataList">
+          <li>Milk</li>
+        </ul>
+      </div>
+    </section>
+
+    <script>
+      function renderListData() {
+        const dataList = document.getElementById("dataList");
+        const inputField = document.getElementById("input-field").value;
+
+        const textList = `<li>${inputField}</li>`;
+        dataList.innerHTML += textList;
+      }
+
+      const addDataBtn = document.getElementById("addBtn");
+      addDataBtn.addEventListener("click", renderListData);
+    </script>
+  </body>
+</html>
