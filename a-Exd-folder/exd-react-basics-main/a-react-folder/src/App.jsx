@@ -1,10 +1,9 @@
 import React from 'react'
-import GroceryItems from './components/GroceryItems'
 
 const App = () => {
   return (
     <div>
-      <GroceryItems/>
+      
     </div>
   )
 }
