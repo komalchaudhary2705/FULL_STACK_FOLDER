@@ -101,11 +101,14 @@ export default function Products() {
           </h5>
           <ul className="list-group">
             {cartItems.map((item) => (
-              <ShoppingCart key={item.id} item={item} 
-              symbol={symbol}
-              increaseQuantity={increaseQuantity}
-              decreaseQuantity={decreaseQuantity}
-              removeCartItem={removeCartItem}/>
+              <ShoppingCart
+                key={item.id}
+                item={item}
+                symbol={symbol}
+                increaseQuantity={increaseQuantity}
+                decreaseQuantity={decreaseQuantity}
+                removeCartItem={removeCartItem}
+              />
             ))}
           </ul>
         </div>
