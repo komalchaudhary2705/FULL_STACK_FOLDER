@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ProductCard from "./ProductCard";
 import ShoppingCart from "./ShoppingCart";
+import SearchComp from "./SearchComp";
 
 export default function Products() {
   const symbol = "$";
@@ -19,7 +20,14 @@ export default function Products() {
   ];
 
   const [cartItems, setCartItems] = useState([]);
+  // ===============================
+  // input search
+  const [searchItem, setSearchItem] = useState("");
 
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchItem.toLowerCase()),
+  );
+  // ============================
   const isCartEmpty = cartItems.length === 0;
   const totalAmount = cartItems.reduce((subTotal, current) => {
     return current.price * current.quantity + subTotal;
@@ -81,10 +89,13 @@ export default function Products() {
 
   return (
     <div className="container mt-4">
+      {/* Search Component*/}
+      <SearchComp searchItem={searchItem} setSearchItem={setSearchItem}/>
       <div className="row">
+       {/* Product List */}
         <div className="col-md-8">
           <div className="row">
-            {products.map((product) => (
+            {filteredProducts.map((product) => (
               <ProductCard
                 key={product.id}
                 product={product}
@@ -94,6 +105,7 @@ export default function Products() {
             ))}
           </div>
         </div>
+        {/* Shopping Cart Component  */}
         <div className="col-md-4">
           <h5>
             Total Amount: {symbol}

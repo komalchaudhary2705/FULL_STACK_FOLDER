@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 const ShoppingCart = ({
   item,
@@ -54,4 +54,4 @@ const ShoppingCart = ({
   );
 };
 
-export default ShoppingCart;
+export default memo(ShoppingCart);
